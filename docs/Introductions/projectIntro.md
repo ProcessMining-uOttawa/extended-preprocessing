@@ -30,6 +30,7 @@ Pandas is a fast, powerful, flexible and easy to use open-source data analysis a
 
 Table 2: Overview of Python based APIs
 
+
 |  | Row | Column | Trace | Other |
 | --- | --- | --- | --- | --- |
 | Add |  | [concatenateColumns()](./APIs/concatenateColumns.md) [concatenateColumns()](./APIs/concatenateColumns.md) [eventIsRepeated()](./APIs/eventIsRepeated.md) [eventIsRepeatedSort()](./APIs/eventIsRepeatedSort.md) [addNewTime()](./APIs/addNewTime.md) | [deleteTraceLengthLessThan()](./APIs/deleteTraceLengthLessThan.md) [deleteTruncatedTracesStart()](./APIs/deleteTruncatedTracesStart.md) [deleteTruncatedTracesEndSort()](./APIs/deleteTruncatedTracesEndSort.md) [deleteTruncatedTracesEnd()](./APIs/deleteTruncatedTracesEnd.md) [deleteTruncatedTracesEndSort()](./APIs/deleteTruncatedTracesEndSort.md) [deleteTruncatedTracesEnd()](./APIs/deleteTruncatedTracesEnd.md) [deleteTruncatedTracesEndSort()](./APIs/deleteTruncatedTracesEndSort.md) [deleteTracesWithTimeLess()](./APIs/deleteTracesWithTimeLess.md) [deleteTracesWithTimeLessSort()](./APIs/deleteTracesWithTimeLessSort.md) |  |
