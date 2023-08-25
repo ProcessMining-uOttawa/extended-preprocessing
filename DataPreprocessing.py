@@ -472,7 +472,27 @@ def getTraceDurations(dataset):
     res = ArrangeRows(res,['time_delta'],False)     
     return res
 
+# Optimized by AB
+def filterTracesWithinDateRange(dataset, start_date, end_date, format=None):
+    
+    # If format is provided, use it, otherwise let pandas infer it
+    start_date = pd.to_datetime(start_date, format=format)
+    end_date = pd.to_datetime(end_date, format=format)
 
+    # Convert entire timestamp column to datetime format. 
+    # If format is provided, use it. Otherwise, let pandas infer it.
+    dataset['timestamp'] = pd.to_datetime(dataset['timestamp'], format=format, errors='coerce')
+
+    # Detect cases which have timestamps outside the range
+    outside_cases = dataset.groupby('case_id').filter(lambda x: x['timestamp'].min() < start_date or x['timestamp'].max() > end_date)['case_id'].unique()
+
+    # Remove those cases from the dataset
+    dataset = dataset[~dataset['case_id'].isin(outside_cases)]
+
+    return dataset    
+
+# Underneath is the previous function (it was a bit slow and I ran into some issues). Keep for reference for a bit until we see new function works well
+'''
 def filterTracesWithinDateRange(dataset,start_date,end_date,format="%d/%m/%Y %H:%M"):
     dataset = ArrangeRows(dataset,['case_id','timestamp'])
     case_id = 0
@@ -505,7 +525,7 @@ def filterTracesWithinDateRange(dataset,start_date,end_date,format="%d/%m/%Y %H:
             end_time = row['timestamp']
 
     return dataset
-
+'''
 
 
 # Added by Alexis.B

@@ -13,7 +13,7 @@ filterTracesWithinDateRange(Dataframe dataset,String start_date,String end_date,
 - `dataset` is the source pandas dataframe.
 - `start_date` is the start date we wish to use to include a trace.
 - `end_date` is the end date we wish to use to include a trace. 
-- `format` (optional) is the timestamp format used for the date comparison. The default format is: %d/%m/%Y %H:%M
+- `format` (optional) the function will try to read the column timestamp and detect the appropriate format.
 
 ## Return
 Return a dataframe with only the traces that start and finish between the start_date and end_date.
